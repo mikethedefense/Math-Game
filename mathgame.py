@@ -26,3 +26,4 @@ while proceed == "y" or proceed == "":
     print('Your current score is {}'.format(score))
     
     proceed = input("Play again? Y/n:")
+   # This test is for children between grades 3 and 6
