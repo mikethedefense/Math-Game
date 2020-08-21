@@ -1,4 +1,4 @@
-# Math game project 
+ Math game project 
 # FINAL VERSION
 
 # Imports
@@ -19,7 +19,7 @@ def start_thread(seconds):
     global flag
     flag = False
 print("You have", timer, "seconds to respond to these multiplication questions")
-s = threading.Thread(target = start_thread, args=60)
+s = threading.Thread(target = start_thread, args=[60])
 s.start()
 t.start()
 
