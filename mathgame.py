@@ -3,9 +3,8 @@
 
 # Imports
 import random
-from threading import *
+from threading import Timer
 import threading
-import sys
 import time
 
 # Variables
@@ -15,12 +14,12 @@ score = 0
 flag = True
 
 # Before start of game
-def start_thread():
-    time.sleep(60)
+def start_thread(seconds):
+    time.sleep(seconds)
     global flag
     flag = False
 print("You have", timer, "seconds to respond to these multiplication questions")
-s = threading.Thread(target = start_thread)
+s = threading.Thread(target = start_thread, args=60)
 s.start()
 t.start()
 
