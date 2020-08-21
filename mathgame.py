@@ -1,10 +1,31 @@
-# To-do list: 
-# https://stackoverflow.com/questions/15528939/python-3-timed-input
-# Add timed input (For later)
+# Math game project
+
+# Imports
 import random
-proceed = ""
+from threading import *
+import threading
+import sys
+import time
+
+# Variables
+timer = 10
+t = Timer(timer, print, ["\n Sorry time is up"])
 score = 0
-while proceed == "y" or proceed == "":
+flag = True
+
+# Before start of game
+def start_thread():
+    time.sleep(10)
+    global flag
+    flag = False
+
+print("You have", timer, "seconds to respond to these multiplication questions")
+s = threading.Thread(target = start_thread)
+s.start()
+t.start()
+
+# Main game loop
+while flag == True:
     try:
         count = random.randint(1,12)
         times_value = random.randint(1,12) 
@@ -14,16 +35,16 @@ while proceed == "y" or proceed == "":
         number = int(number)
     except ValueError:
         print('Invalid text. Please enter correct digits')
-    
-    
+        continue
+   
     if number == result:
         print('You are correct')
-        score = score +1
+        score += 1
     else:
         print('You are incorrect')
         print('The answer was {}'.format(result))
+        print('Your current score is {}'.format(score))
 
-    print('Your current score is {}'.format(score))
-    
-    proceed = input("Play again? Y/n:")
-   # This test is for children between grades 3 and 6
+# End of the game
+t.cancel()
+print("Your score:", score)
