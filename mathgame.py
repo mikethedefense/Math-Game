@@ -1,4 +1,5 @@
-# Math game project
+# Math game project 
+# FINAL VERSION
 
 # Imports
 import random
@@ -8,17 +9,16 @@ import sys
 import time
 
 # Variables
-timer = 10
-t = Timer(timer, print, ["\n Sorry time is up"])
+timer = 60
+t = Timer(timer, print)
 score = 0
 flag = True
 
 # Before start of game
 def start_thread():
-    time.sleep(10)
+    time.sleep(60)
     global flag
     flag = False
-
 print("You have", timer, "seconds to respond to these multiplication questions")
 s = threading.Thread(target = start_thread)
 s.start()
@@ -47,4 +47,5 @@ while flag == True:
 
 # End of the game
 t.cancel()
+print("Time is up")
 print("Your score:", score)
