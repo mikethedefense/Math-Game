@@ -1,4 +1,4 @@
- Math game project 
+# Math game project 
 # FINAL VERSION
 
 # Imports
